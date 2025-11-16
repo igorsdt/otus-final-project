@@ -1,0 +1,11 @@
+import styles from './Loader.module.css';
+
+const Loader = () => {
+  return (
+    <div className={styles.parent}>
+      <div className={styles.loader}></div>
+    </div>
+  );
+};
+
+export { Loader };

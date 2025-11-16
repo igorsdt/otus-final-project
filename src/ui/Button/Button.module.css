@@ -1,0 +1,60 @@
+.button {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  padding: 8px 16px;
+  border: 1px solid var(--button-border-color);
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  transition: background-color 0.3s linear, color 0.3s linear,
+    border-color 0.3s linear;
+}
+
+.button:hover {
+  background-color: var(--button-background-hover-color);
+  border-color: var(--button-border-hover-color);
+  color: var(--button-text-hover-color);
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.Primary {
+  --button-background-color: var(--color-primary);
+  --button-border-color: var(--color-primary);
+  --button-text-color: var(--color-text-white);
+  --button-background-hover-color: var(--color-primary-hover);
+  --button-border-hover-color: var(--color-primary-hover);
+  --button-text-hover-color: var(--color-text-white);
+}
+
+.Secondary {
+  --button-background-color: var(--color-secondary);
+  --button-border-color: var(--color-secondary);
+  --button-text-color: var(--color-text-white);
+  --button-background-hover-color: var(--color-secondary-hover);
+  --button-border-hover-color: var(--color-secondary-hover);
+  --button-text-hover-color: var(--color-text-white);
+}
+
+.Outline {
+  --button-background-color: transparent;
+  --button-border-color: var(--color-secondary);
+  --button-text-color: var(--color-text-base);
+  --button-background-hover-color: transparent;
+  --button-border-hover-color: var(--color-secondary-hover);
+  --button-text-hover-color: var(--color-primary-hover);
+}
+
+.Ghost {
+  --button-background-color: transparent;
+  --button-border-color: transparent;
+  --button-text-color: var(--color-text-base);
+  --button-background-hover-color: var(--color-secondary-hover);
+  --button-border-hover-color: var(--color-secondary-hover);
+  --button-text-hover-color: white;
+}

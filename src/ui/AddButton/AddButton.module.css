@@ -1,0 +1,49 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-secondary);
+  border-radius: 2px;
+  position: relative;
+  transition: background-color .5s;
+  cursor: pointer;
+
+  &:before, &:after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    border-radius: 4px;
+    background: var(--color-bg-white);
+    transition: background .5s, scale .5s;
+  }
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%;
+    rotate: 90deg;
+    margin-top: -1px;
+  }
+}
+
+@media (hover:hover) {
+  .button:hover {
+    background: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+
+  .button:hover:before, .button:hover:after {
+    scale: 1.1;
+  }
+}
+
+@media (hover:none) {
+  .button:active {
+    background: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+}

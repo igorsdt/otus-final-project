@@ -1,0 +1,4 @@
+.idea
+dist
+.rspack_cache/
+node_modules

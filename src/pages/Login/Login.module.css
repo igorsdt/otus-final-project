@@ -1,0 +1,38 @@
+.loginContainer {
+  max-width: 468px;
+  margin: 32px auto 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.1);
+  background: white;
+  padding: 32px 48px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  line-height: 48px;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-top: 1px solid var(--color-border-gray);
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.error {
+  text-align: center;
+  font-size: 1rem;
+  color: #FF2056;
+}

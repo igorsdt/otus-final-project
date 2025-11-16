@@ -1,0 +1,38 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  width: 48px;
+  height: 48px;
+  background: var(--color-bg-secondary);
+  border-radius: 2px;
+  position: relative;
+  transition: background-color .5s;
+  cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    transition: scale .5s;
+    /*color: var(--color-text-white);*/
+  }
+}
+
+@media (hover:hover) {
+  .button:hover {
+    background: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+
+  .button:hover svg {
+    scale: 1.1;
+  }
+}
+
+@media (hover:none) {
+  .button:active {
+    background: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+}

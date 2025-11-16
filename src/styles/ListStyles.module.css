@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.item {
+  width: calc(50% - 12px);
+}
+
+.item:last-of-type {
+  margin-bottom: 0;
+}
+
+.sub {
+  display: flex;
+  justify-content: center;
+}
+
+.nothing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px;
+}

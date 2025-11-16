@@ -1,0 +1,43 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 8px;
+  height: 48px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: var(--color-bg-secondary);
+  font-size: 16px;
+  color: var(--color-bg-white);
+  transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+.button svg {
+  display: block;
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  transition: scale .3s linear;
+}
+
+.button span {
+  margin-top: 2px;
+}
+
+@media (hover:hover) {
+  .button:hover {
+    background-color: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+
+  .button:hover svg {
+    scale: 1.1;
+  }
+}
+
+@media (hover:none) {
+  .button:active {
+    background-color: var(--color-bg-secondary-hover);
+    box-shadow: 7px 4px 13px rgba(20, 120, 150, 0.10), 0 4.5px 10px rgba(0,0,0,0.2);
+  }
+}

@@ -1,0 +1,50 @@
+:root {
+  /* Основная палитра */
+  --color-primary: #1f2229;
+  --color-primary-transparent: #1f2229f0;
+  --color-primary-hover: #797986;
+  --color-secondary: #2596be;
+  --color-secondary-hover: #42D3F2;
+  --color-gray: #F2F2F3;
+  --color-gray-2: #C1C1C7;
+  --color-white: #FFFFFF;
+  /* Текст */
+  --font-base: 'Roboto';
+  --color-text-base: var(--color-primary);
+  --color-text-base-hover: var(--color-primary-hover);
+  --color-text-white: var(--color-white);
+  --color-text-gray: var(--color-gray-2);
+  --color-text-secondary: var(--color-secondary);
+  --color-text-light: #63636E;
+  /* Рамки */
+  --color-border-gray: #C8C4C1;
+  --color-border-gray-2: #EEEEEE;
+  /* Фон */
+  --color-bg-gray: var(--color-gray);
+  --color-bg-primary: var(--color-primary);
+  --color-bg-primary-transparent: var(--color-primary-transparent);
+  --color-bg-primary-hover: var(--color-primary-hover);
+  --color-bg-secondary: var(--color-secondary);
+  --color-bg-secondary-hover: var(--color-secondary-hover);
+  --color-bg-white: var(--color-white);
+}
+
+body {
+  font-family: var(--font-base), sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  background: none;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
