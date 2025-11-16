@@ -28,6 +28,13 @@
   opacity: .6;
 }
 
+.photo {
+  display: flex;
+  height: 400px;
+  width: auto;
+  object-fit: contain;
+}
+
 .value {
   text-align: right;
 }

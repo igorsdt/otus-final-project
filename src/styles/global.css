@@ -17,7 +17,9 @@
   --color-text-secondary: var(--color-secondary);
   --color-text-light: #63636E;
   /* Рамки */
+  --color-border-primary: var(--color-primary);
   --color-border-gray: #C8C4C1;
+  --color-border-gray-hover: var(--color-primary-hover);
   --color-border-gray-2: #EEEEEE;
   /* Фон */
   --color-bg-gray: var(--color-gray);

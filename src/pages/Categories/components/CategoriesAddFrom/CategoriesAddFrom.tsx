@@ -36,7 +36,7 @@ const CategoriesAddFrom: FC<CategoriesAddFromProps> = ({ closeFN }) => {
         },
       }
       await patch(formData);
-      closeFN();
+      location.reload();
     } catch (error) {
       const processedErrors = handleQueryErrors(error);
       show(processedErrors, 'error');

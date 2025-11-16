@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { TextEncoder, TextDecoder } from 'util';
-import { Button, type ButtonProps } from './Button';
+import { Button, type ButtonProps } from '@/ui';
 
 global.TextEncoder = TextEncoder as any;
 global.TextDecoder = TextDecoder as any;
@@ -81,13 +81,13 @@ describe('Button Component', () => {
     it('has primary class when color is Primary', () => {
       render(<Button {...defaultProps} theme="Primary" />);
       const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('primary');
+      expect(button).toHaveClass('Primary');
     });
 
     it('has secondary class when color is Secondary', () => {
       render(<Button {...defaultProps} theme="Secondary" />);
       const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('secondary');
+      expect(button).toHaveClass('Secondary');
     });
   });
 });

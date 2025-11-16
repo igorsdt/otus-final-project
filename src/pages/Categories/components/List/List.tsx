@@ -3,6 +3,7 @@ import { Item } from '../Item/Item';
 import { ListProps } from './List.types';
 import styles from '@/styles/ListStyles.module.css';
 import { FC } from 'react';
+import { NoElements } from '@/components';
 
 const List: FC<ListProps> = ({ defaultItems }: ListProps) => {
   return (
@@ -13,11 +14,7 @@ const List: FC<ListProps> = ({ defaultItems }: ListProps) => {
             <Item {...item} />
           </Link>
         ))}
-        {(!defaultItems || defaultItems.length === 0) && (
-          <p className={styles.nothing}>
-            Ничего не найдено
-          </p>
-        )}
+        {(!defaultItems.length) && <NoElements />}
       </div>
     </article>
   );

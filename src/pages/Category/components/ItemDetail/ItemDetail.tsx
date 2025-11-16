@@ -15,13 +15,12 @@ const ItemDetail: FC<DetailProps> = ({
   photo,
   onClick
 }: DetailProps) => {
-
   return (
     <article className={styles.detail} id={id}>
       <Submenu onButtonClick={onClick} buttonType='edit' />
       <div className={styles.table}>
         {photo && (
-          <img src={photo} width={250} height={400} />
+          <img className={styles.photo} src={photo} width={250} height={400} loading="lazy" alt={category.name} />
         )}
         {category?.name && (
           <div className={styles.row}>

@@ -69,16 +69,6 @@ const EditFormOperation: FC<EditFormOperationProps> = (props: EditFormOperationP
         <Input label="Описание" {...register('desc')} />
       </div>
       <div className={styles.field}>
-        <Input error={errors.amount?.message} label="Стоимость" {...register('amount', {
-          required: 'Поле стоимость не заполнено'
-        })} />
-      </div>
-      <div className={styles.field}>
-        <Input error={errors.date?.message} label="Дата" type="date" {...register('date', {
-          required: 'Поле дата не заполнено'
-        })} />
-      </div>
-      <div className={styles.field}>
         <Select
           defaultValue={props.category.id}
           label="Категория"
@@ -90,6 +80,16 @@ const EditFormOperation: FC<EditFormOperationProps> = (props: EditFormOperationP
             setValue('category', id);
           }}
         />
+      </div>
+      <div className={styles.field}>
+        <Input error={errors.amount?.message} label="Стоимость" {...register('amount', {
+          required: 'Поле стоимость не заполнено'
+        })} />
+      </div>
+      <div className={styles.field}>
+        <Input error={errors.date?.message} label="Дата" type="date" {...register('date', {
+          required: 'Поле дата не заполнено'
+        })} />
       </div>
       <div className={styles.buttons}>
         <Button text="Закрыть" theme={'Outline'} type={'button'} onClick={() => props.closeFN()} />

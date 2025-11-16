@@ -47,7 +47,7 @@ const AddForm: FC<AddFormProps> = ({ closeFN }) => {
           },
         },
       });
-      closeFN();
+      location.reload();
     } catch (error) {
       const processedErrors = handleQueryErrors(error);
       show(processedErrors, 'error');
@@ -71,27 +71,8 @@ const AddForm: FC<AddFormProps> = ({ closeFN }) => {
         <Input label="Описание" {...register('desc')} />
       </div>
       <div className={styles.field}>
-        <Input
-          error={errors.amount?.message}
-          label="Стоимость"
-          {...register('amount', {
-            required: 'Не заполнено поле'
-          })}
-        />
-      </div>
-      <div className={styles.field}>
-        <Input
-          error={errors.date?.message}
-          label="Дата"
-          type="date"
-          {...register('date', {
-            required: 'Не выбрана дата',
-          })}
-        />
-      </div>
-      <div className={styles.field}>
         <Select
-          label="Категория"
+          label="Вид реализации"
           options={[
             { id: 'Cost', name: 'Cost' },
             { id: 'Profit', name: 'Profit' },
@@ -113,6 +94,25 @@ const AddForm: FC<AddFormProps> = ({ closeFN }) => {
           onChange={(id) => {
             setValue('category', id);
           }}
+        />
+      </div>
+      <div className={styles.field}>
+        <Input
+          error={errors.amount?.message}
+          label="Стоимость"
+          {...register('amount', {
+            required: 'Не заполнено поле'
+          })}
+        />
+      </div>
+      <div className={styles.field}>
+        <Input
+          error={errors.date?.message}
+          label="Дата"
+          type="date"
+          {...register('date', {
+            required: 'Не выбрана дата',
+          })}
         />
       </div>
       <div className={styles.buttons}>

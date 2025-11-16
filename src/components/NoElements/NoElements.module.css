@@ -1,0 +1,12 @@
+.block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 28px;
+  line-height: 32px;
+  color: var(--color-text-base);
+}

@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Component matches disabled snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="button disabled Primary"
+    disabled=""
+    type="button"
+  >
+    Click me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component matches primary snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="button Primary"
+    type="button"
+  >
+    Click me
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Button Component matches snapshot (testing-library) 1`] = `
+<DocumentFragment>
+  <button
+    class="button Primary"
+    type="button"
+  >
+    Click me
+  </button>
+</DocumentFragment>
+`;

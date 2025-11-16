@@ -1,7 +1,7 @@
 .customSelect {
   position: relative;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .label {
@@ -12,7 +12,7 @@
 
 .selectHeader {
   padding: 10px 12px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border-gray);
   border-radius: 4px;
   background-color: white;
   cursor: pointer;
@@ -22,18 +22,18 @@
 }
 
 .selectHeader:hover {
-  border-color: #aaa;
+  border-color: var(--color-border-gray-hover);
 }
 
 .selectHeader.open {
-  border-color: black;
-  box-shadow: 0 0 0 1px black;
+  border-color: var(--color-border-primary);
+  box-shadow: 0 0 0 1px var(--color-border-primary);
 }
 
 .arrow {
-  width: 16px;
-  height: 16px;
-  fill: #666;
+  width: 24px;
+  height: 24px;
+  fill: var(--color-border-primary);
   transition: transform 0.2s;
 }
 
@@ -48,7 +48,7 @@
   right: 0;
   max-height: 200px;
   overflow-y: auto;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-border-gray);
   border-radius: 4px;
   background-color: white;
   z-index: 100;
@@ -64,18 +64,21 @@
 }
 
 .option:hover {
-  background-color: #f5f5f5;
+  background-color: var(--color-bg-gray);
 }
 
 .option.selected {
   background-color: #eef2ff;
-  color: orange;
+  color: var(--color-text-secondary);
   font-weight: 500;
 }
 
 .errorMessage {
-  color: #ff4d4f;
-  font-size: 0.875rem;
+  color: #FF2056;
+  font-size: 12px;
+  text-align: left;
+  display: block;
+  margin-top: 4px;
 }
 
 .error {
