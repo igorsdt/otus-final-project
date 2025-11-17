@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { ButtonWithIcon } from './ButtonWithIcon';
+import { ButtonWithIcon } from '@/ui';
 
 describe('ButtonWithIcon', () => {
   it('renders button', () => {

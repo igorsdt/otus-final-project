@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserDropdown matches snapshot when closed 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown"
+  >
+    <button
+      class="iconButton"
+      type="button"
+    >
+      <span
+        data-testid="user-icon"
+      >
+        UserIcon
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`UserDropdown matches snapshot when opened 1`] = `
+<DocumentFragment>
+  <div
+    class="dropdown"
+  >
+    <button
+      class="iconButton"
+      type="button"
+    >
+      <span
+        data-testid="user-icon"
+      >
+        UserIcon
+      </span>
+    </button>
+    <div
+      class="menu"
+    >
+      <button
+        class="menuItem"
+        type="button"
+      >
+        Личный кабинет
+      </button>
+      <button
+        class="menuItem"
+        type="button"
+      >
+        Выход
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;

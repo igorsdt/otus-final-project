@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BackButton } from './BackButton';
+import { BackButton } from '@/ui';
 import { MemoryRouter } from 'react-router-dom';
 
 // Мокаем useNavigate для проверки вызова навигации:

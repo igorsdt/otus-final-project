@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component renders correctly with error 1`] = `
+<DocumentFragment>
+  <div
+    class="container "
+  >
+    <div
+      class="inputWrapper"
+    >
+      <input
+        class="input error"
+        placeholder="Enter text"
+        type="text"
+        value=""
+      />
+    </div>
+    <span
+      class="errorMessage"
+    >
+      Test error
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Input Component renders correctly with label 1`] = `
+<DocumentFragment>
+  <div
+    class="container "
+  >
+    <label
+      class="label"
+    >
+      Test Label
+    </label>
+    <div
+      class="inputWrapper"
+    >
+      <input
+        class="input "
+        placeholder="Enter text"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Input Component renders correctly with minimal props 1`] = `
+<DocumentFragment>
+  <div
+    class="container "
+  >
+    <div
+      class="inputWrapper"
+    >
+      <input
+        class="input "
+        placeholder="Enter text"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Input Component renders password Input correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="container "
+  >
+    <div
+      class="inputWrapper"
+    >
+      <input
+        class="input "
+        placeholder="Enter text"
+        type="password"
+        value=""
+      />
+      <button
+        aria-label="Показать пароль"
+        class="toggleButton"
+        type="button"
+      >
+        <span>
+          FiEye
+        </span>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
