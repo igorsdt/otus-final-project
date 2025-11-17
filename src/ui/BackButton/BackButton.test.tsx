@@ -1,57 +1,48 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
-import { useAuth } from '@/stores/useAuth';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { BackButton } from './BackButton';
+import { MemoryRouter } from 'react-router-dom';
 
-// Добавляем полифиллы для TextEncoder/TextDecoder
-global.TextEncoder = require('util').TextEncoder;
-global.TextDecoder = require('util').TextDecoder;
-
-// Мокаем только необходимые хуки
+// Мокаем useNavigate для проверки вызова навигации:
 jest.mock('react-router-dom', () => ({
-  useNavigate: jest.fn(),
-  useLocation: jest.fn(),
-}));
-
-jest.mock('@/stores/useAuth', () => ({
-  useAuth: jest.fn(),
-}));
-
-jest.mock('react-icons/fi', () => ({
-  FiArrowLeft: () => <span>←</span>, // Упрощенная иконка для тестов
+  ...jest.requireActual('react-router-dom'),
+  useNavigate: () => jest.fn(),
+  useLocation: () => ({ pathname: '/some-path' })
 }));
 
 describe('BackButton', () => {
-  const mockNavigate = jest.fn();
-  const mockLocation = { pathname: '/operations' };
-  const mockUseAuth = { isAuth: true };
-
-  beforeEach(() => {
-    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
-    (useLocation as jest.Mock).mockReturnValue(mockLocation);
-    (useAuth as jest.Mock).mockReturnValue(mockUseAuth);
+  it('renders button and text', () => {
+    render(
+      <MemoryRouter>
+        <BackButton />
+      </MemoryRouter>
+    );
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(screen.getByText('Вернуться')).toBeInTheDocument();
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
+  it('calls navigate(-1) on click', () => {
+    const navigate = jest.fn();
+    // Переопределяем useNavigate специально для этого теста:
+    jest.spyOn(require('react-router-dom'), 'useNavigate').mockReturnValue(navigate);
+
+    render(
+      <MemoryRouter>
+        <BackButton />
+      </MemoryRouter>
+    );
+    const button = screen.getByRole('button');
+    fireEvent.click(button);
+    expect(navigate).toHaveBeenCalledWith(-1);
   });
 
-  it('does not render when not authorized', () => {
-    (useAuth as jest.Mock).mockReturnValueOnce({ isAuth: false });
-    const { container } = render(<BackButton />);
-    expect(container).toBeEmptyDOMElement();
-  });
-
-  it('navigates when history exists', () => {
-    // История с одним элементом (как будто только зашли на страницу)
-    jest.spyOn(React, 'useRef').mockReturnValue({
-      current: ['/operations'], // Только текущий путь
-    });
-
-    render(<BackButton />);
-    fireEvent.click(screen.getByText('Назад'));
-
-    expect(mockNavigate).toHaveBeenCalledWith('/operations');
+  it('check icon', () => {
+    render(
+      <MemoryRouter>
+        <BackButton />
+      </MemoryRouter>
+    );
+    // наличие svg:
+    expect(screen.getByRole('button').querySelector('svg')).toBeInTheDocument();
   });
 });

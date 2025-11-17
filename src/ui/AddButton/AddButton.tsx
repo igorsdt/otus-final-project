@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styles from './AddButton.module.css';
-import { AddButtonProps } from '@/ui/AddButton/AddButton.types';
+import { AddButtonProps } from './AddButton.types';
 
 const AddButton: FC<AddButtonProps> = ({ onClick }: AddButtonProps) => {
   return (

@@ -74,7 +74,7 @@ module.exports = {
       directory: resolve(__dirname, 'public'),
     },
     hot: true,
-    port: 3000,
+    port: 3001,
     open: true,
     historyApiFallback: true,
   },

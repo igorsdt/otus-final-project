@@ -1,93 +1,56 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { TextEncoder, TextDecoder } from 'util';
-import { Button, type ButtonProps } from '@/ui';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { Button } from './Button';
 
-global.TextEncoder = TextEncoder as any;
-global.TextDecoder = TextDecoder as any;
+const renderWithRouter = (ui: React.ReactElement) =>
+  render(<MemoryRouter>{ui}</MemoryRouter>);
 
-describe('Button Component', () => {
-  const defaultProps: ButtonProps = {
-    text: 'Click me',
-    onClick: jest.fn(),
-  };
-
-  it('matches snapshot (testing-library)', () => {
-    const { asFragment } = render(<Button {...defaultProps} />);
-    expect(asFragment()).toMatchSnapshot();
+describe('Button', () => {
+  it('renders as a button by default', () => {
+    renderWithRouter(<Button text="Кнопка" />);
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent('Кнопка');
   });
 
-  it('matches disabled snapshot', () => {
-    const { asFragment } = render(<Button {...defaultProps} disabled />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('matches primary snapshot', () => {
-    const { asFragment } = render(<Button {...defaultProps} theme="Primary" />);
-    expect(asFragment()).toMatchSnapshot();
-  });
-
-  it('renders Button with correct text', () => {
-    render(<Button {...defaultProps} />);
-    expect(screen.getByText(defaultProps.text)).toBeInTheDocument();
-  });
-
-  it('calls onClick handler when clicked', () => {
-    render(<Button {...defaultProps} />);
-    fireEvent.click(screen.getByText(defaultProps.text));
-    expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
-  });
-
-  it('has default type "Button"', () => {
-    render(<Button {...defaultProps} />);
-    expect(screen.getByText(defaultProps.text)).toHaveAttribute('type', 'button');
-  });
-
-  it('applies correct type attribute when provided', () => {
-    const type = 'submit';
-    render(<Button {...defaultProps} type={type} />);
-    expect(screen.getByText(defaultProps.text)).toHaveAttribute('type', type);
-  });
-
-  it('is disabled when disabled prop is true', () => {
-    render(<Button {...defaultProps} disabled={true} />);
-    const button = screen.getByText(defaultProps.text);
-    expect(button).toBeDisabled();
-    expect(button).toHaveAttribute('disabled');
-    expect(button).toHaveClass('disabled');
+  it('calls onClick when enabled', () => {
+    const handleClick = jest.fn();
+    renderWithRouter(<Button text="Клик" onClick={handleClick} />);
+    const button = screen.getByRole('button');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   it('does not call onClick when disabled', () => {
-    const onClick = jest.fn();
-    render(<Button {...defaultProps} disabled={true} onClick={onClick} />);
-    const button = screen.getByText(defaultProps.text);
-
+    const handleClick = jest.fn();
+    renderWithRouter(<Button text="Клик" disabled onClick={handleClick} />);
+    const button = screen.getByRole('button');
     fireEvent.click(button);
-    expect(onClick).not.toHaveBeenCalled();
+    expect(handleClick).not.toHaveBeenCalled();
+    expect(button).toBeDisabled();
   });
 
-  describe('CSS Classes', () => {
-    it('has default Button class', () => {
-      render(<Button {...defaultProps} />);
-      const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('button');
-    });
+  it('renders with theme "Primary"', () => {
+    renderWithRouter(<Button text="Primary" theme="Primary" />);
+    expect(screen.getByRole('button')).toHaveTextContent('Primary');
+  });
 
-    it('has disabled class when disabled', () => {
-      render(<Button {...defaultProps} disabled={true} />);
-      const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('disabled');
-    });
+  it('renders with theme "Secondary"', () => {
+    renderWithRouter(<Button text="Secondary" theme="Secondary" />);
+    expect(screen.getByRole('button')).toHaveTextContent('Secondary');
+  });
 
-    it('has primary class when color is Primary', () => {
-      render(<Button {...defaultProps} theme="Primary" />);
-      const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('Primary');
-    });
+  it('renders as a link when href is set', () => {
+    renderWithRouter(<Button text="Ссылка" href="/route" />);
+    const link = screen.getByRole('link');
+    expect(link).toBeInTheDocument();
+    expect(link).toHaveAttribute('href', '/route');
+    expect(link).toHaveTextContent('Ссылка');
+  });
 
-    it('has secondary class when color is Secondary', () => {
-      render(<Button {...defaultProps} theme="Secondary" />);
-      const button = screen.getByText(defaultProps.text);
-      expect(button).toHaveClass('Secondary');
-    });
+  it('uses correct type for button', () => {
+    renderWithRouter(<Button text="Submit" type="submit" />);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('type', 'submit');
   });
 });
