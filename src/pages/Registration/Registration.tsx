@@ -100,6 +100,7 @@ const Registration = () => {
           />
 
           <Button
+            disabled={loading}
             theme="Primary"
             text={loading ? 'Загрузка...' : 'Зарегистрироваться'}
             type="submit"

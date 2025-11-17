@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/client';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { useAuth } from '@/stores/useAuth';
+import { ToastProvider } from '@/serviсes/ToastContext';
 import { Login } from './Login';
 
 // Мокаем зависимости
@@ -28,7 +29,7 @@ describe('Login', () => {
   });
 
   it('correctly associates labels with inputs', () => {
-    render(<Login />);
+    render(<ToastProvider><Login /></ToastProvider>);
 
     const emailInput = screen.getByLabelText('Email');
     const passwordInput = screen.getByLabelText('Пароль');
@@ -43,7 +44,7 @@ describe('Login', () => {
     });
     (useMutation as jest.Mock).mockReturnValue([mockMutate, { loading: false }]);
 
-    render(<Login />);
+    render(<ToastProvider><Login /></ToastProvider>);
 
     // Используем getByLabelText для надежного поиска
     fireEvent.change(screen.getByLabelText('Email'), {
